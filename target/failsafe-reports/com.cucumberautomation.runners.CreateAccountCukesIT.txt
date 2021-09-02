@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.cucumberautomation.runners.CreateAccountCukesIT
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.373 s - in com.cucumberautomation.runners.CreateAccountCukesIT
