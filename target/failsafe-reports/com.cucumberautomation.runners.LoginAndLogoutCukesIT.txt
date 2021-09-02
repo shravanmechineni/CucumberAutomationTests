@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.cucumberautomation.runners.LoginAndLogoutCukesIT
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.155 s - in com.cucumberautomation.runners.LoginAndLogoutCukesIT
