@@ -24,7 +24,7 @@ public class CreateAccountStepDefs {
 
     @Given("I create an account with the following info")
     public void i_create_an_account_with_the_following_info(List<Map<String, String>> data) {
-        String email = createAccountPageObjects.generateEmail(12);
+        String email = TestData.generateEmail(12);
         for (Map<String, String> user : data) {
             createAccountPageObjects.createAccount(email, user.get("firstname"), user.get("lastname"), user.get("password"), user.get("date"), user.get("month"), user.get("year"));
         }

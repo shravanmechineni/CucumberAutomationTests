@@ -1,21 +1,18 @@
 package com.cucumberautomation.util;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class Baseclass {
     protected static WebDriver driver;
 
-    private static final int DEFAULT_TIMEOUT = 10;
+    private static final int DEFAULT_TIMEOUT = 20;
 
     public void openBrowser(String browserType) {
         switch (browserType) {
@@ -30,7 +27,7 @@ public class Baseclass {
             default:
                 throw new IllegalArgumentException("Unknown Browser Driver " + browserType);
         }
-        driver.manage().timeouts().implicitlyWait(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(DEFAULT_TIMEOUT));
     }
 
     public void navigate(String url) {
@@ -77,32 +74,5 @@ public class Baseclass {
         Select select = new Select(driver.findElement(element));
         select.selectByValue(value);
     }
-
-    protected void selectTextFromDropDown(By element, String text) {
-        Select select = new Select(driver.findElement(element));
-        select.selectByVisibleText(text);
-    }
-
-    protected void selectIndexFromDropDown(By element, int index) {
-        Select select = new Select(driver.findElement(element));
-        select.selectByIndex(index);
-    }
-
-    public void menuHover(By mainMenuElement, By subMenuElement) {
-        WebElement mainMenu = driver.findElement(mainMenuElement);
-        Actions actions = new Actions(driver);
-        WebElement subMenu = driver.findElement(subMenuElement);
-        actions.moveToElement(subMenu);
-        actions.click().build().perform();
-    }
-
-    public static String generateEmail(int length) {
-        String allowedChars = "abcdefghijklmnopqrstuvwxyz" +
-                "1234567890";
-
-        String random = RandomStringUtils.random(length, allowedChars);
-        return random + "@test.com";
-    }
-
 
 }
